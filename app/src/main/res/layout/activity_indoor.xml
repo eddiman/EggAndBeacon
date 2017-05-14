@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    tools:context="com.pires.eggandbeacon.MainActivity">
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="450dp"
+        android:src="@drawable/apartment"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/image_apartment" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        android:id="@+id/area"
+        android:layout_below="@id/image_apartment"
+        android:layout_centerHorizontal="true"
+        android:textSize="28dp"
+        android:fontFamily="sans-serif-condensed"
+
+        />
+    <ImageView
+    android:layout_width="24dp"
+    android:layout_height="26dp"
+    android:background="@drawable/ic_place_black_24dp"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="85dp"
+    android:id="@+id/img_marker_living"
+    android:visibility="invisible"
+    />
+
+    <ImageView
+        android:layout_width="108dp"
+        android:layout_height="108dp"
+        android:background="@drawable/circle"
+        android:id="@+id/img_circle_living"
+        android:layout_marginTop="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:layout_width="24dp"
+        android:layout_height="26dp"
+        android:background="@drawable/ic_place_black_24dp"
+        android:layout_marginTop="39dp"
+        android:id="@+id/img_marker_hall"
+        android:layout_alignTop="@+id/img_circle_hall"
+        android:layout_alignStart="@+id/img_marker_living"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:layout_width="108dp"
+        android:layout_height="108dp"
+        android:background="@drawable/circle"
+        android:id="@+id/img_circle_hall"
+        android:layout_alignBottom="@+id/image_apartment"
+        android:layout_alignStart="@+id/img_circle_living"
+        android:layout_marginBottom="38dp"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/start_indoor_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan BLE"
+        tools:layout_editor_absoluteX="0dp"
+        android:layout_alignParentBottom="true"
+        />
+
+    <Button
+        android:id="@+id/go_to_main"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Main screen"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:id="@+id/stop_indoor_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop scan"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+
+        />
+
+
+</RelativeLayout>

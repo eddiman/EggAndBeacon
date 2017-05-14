@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    tools:context="com.pires.eggandbeacon.MainActivity"
+    android:id="@+id/parentLayout"
+    >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toTopOf="parent"
+    android:id="@+id/scrollView2"
+    android:layout_marginBottom="48dp"
+    >
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text=""
+    android:id="@+id/text_view"
+    app:layout_constraintTop_toTopOf="parent"
+    tools:layout_editor_absoluteX="0dp" />
+</ScrollView>
+
+
+    <Button
+        android:id="@+id/start_le_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scan BLE"
+        tools:layout_editor_absoluteX="0dp"
+        android:layout_alignParentBottom="true"
+         />
+
+    <Button
+        android:id="@+id/go_to_indoor"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Indoor map"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/stop_le_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop scan"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/scrollView2" />
+
+
+</RelativeLayout>
