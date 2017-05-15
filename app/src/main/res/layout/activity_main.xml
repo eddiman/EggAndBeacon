@@ -43,6 +43,14 @@
         android:layout_centerHorizontal="true" />
 
     <Button
+        android:id="@+id/go_to_altbeacon"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="AltBeacon API"
+        android:layout_above="@id/go_to_indoor"
+        android:layout_centerHorizontal="true" />
+
+    <Button
         android:id="@+id/stop_le_scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

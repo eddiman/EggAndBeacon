@@ -21,7 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".IndoorActivity"></activity>
+        <activity android:name=".IndoorActivity" />
+        <activity android:name=".IBeaconActivity"></activity>
     </application>
 
 </manifest>

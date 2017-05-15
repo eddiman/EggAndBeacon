@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.start_le_scan) Button btnStartLeScan;
     @BindView(R.id.stop_le_scan) Button btnStopLeScan;
     @BindView(R.id.go_to_indoor) Button btnGoToIndoor;
+    @BindView(R.id.go_to_altbeacon) Button btnGoToAltBeacon;
 
 
     @Override
@@ -75,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
     public void goToIndoor(Button button){
         Intent i = new Intent(this, IndoorActivity.class);
         startActivity(i);
+    }
+    @OnClick(R.id.go_to_altbeacon)
+    public void goToAltBeacon(Button button){
+        Intent i2 = new Intent(this, IBeaconActivity.class);
+        startActivity(i2);
     }
 
     private void initGUI() {
