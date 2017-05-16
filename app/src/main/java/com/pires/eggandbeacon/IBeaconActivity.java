@@ -9,8 +9,15 @@ import android.os.Build;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.AbsListView;
+import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.pires.eggandbeacon.adapter.BeaconAdapter;
 
 import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconConsumer;
@@ -30,11 +37,7 @@ public class IBeaconActivity extends AppCompatActivity implements BeaconConsumer
     protected static final String TAG = "RangingActivity";
     private BeaconManager beaconManager;
 
-    @BindView(R.id.alt_uuid) TextView textUuid;
-    @BindView(R.id.alt_Major) TextView textMajor;
-    @BindView(R.id.alt_Minor) TextView textMinor;
-    @BindView(R.id.alt_rssi) TextView textRssi;
-    @BindView(R.id.alt_dist) TextView textDist;
+    @BindView(R.id.beacon_grid) GridView gridBeacon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +70,7 @@ public class IBeaconActivity extends AppCompatActivity implements BeaconConsumer
                 if (beacons.size() > 0) {
 
                     Beacon beacon = beacons.iterator().next();
-                    logToDisplay(beacon);
+                    logToDisplay(beacons);
 
 
                     Log.i(TAG, "BTname: " + beacon.getBluetoothName() + " UUID: " + beacon.getId1() + " Major: " + beacon.getId2()+ " Minor: " + beacon.getId3()
@@ -81,17 +84,54 @@ public class IBeaconActivity extends AppCompatActivity implements BeaconConsumer
         } catch (RemoteException e) {    }
     }
 
-    private void logToDisplay(final Beacon beacon) {
+
+    private void logToDisplay(final Collection<Beacon> beacons) {
         runOnUiThread(new Runnable() {
             public void run() {
-                textUuid.setText( "UUID: " + beacon.getId1());
-                textMajor.setText("Major: " + beacon.getId2());
-                textMinor.setText("Minor: " + beacon.getId3());
+                BeaconAdapter beaconAdapter = new BeaconAdapter(getApplicationContext(), beacons);
+                gridBeacon.setOnScrollListener(new AbsListView.OnScrollListener() {
 
-                textRssi.setText("RSSI: " + beacon.getRssi());
-                textDist.setText("Distance "+ beacon.getDistance()+ " meters");
+                    private int currentVisibleItemCount;
+                    private int currentScrollState;
+                    private int currentFirstVisibleItem;
+                    private int totalItem;
+                    private LinearLayout lBelow;
+
+
+                    @Override
+                    public void onScrollStateChanged(AbsListView view, int scrollState) {
+                        // TODO Auto-generated method stub
+                        this.currentScrollState = scrollState;
+                        this.isScrollCompleted();
+                    }
+
+                    @Override
+                    public void onScroll(AbsListView view, int firstVisibleItem,
+                                         int visibleItemCount, int totalItemCount) {
+                        // TODO Auto-generated method stub
+                        this.currentFirstVisibleItem = firstVisibleItem;
+                        this.currentVisibleItemCount = visibleItemCount;
+                        this.totalItem = totalItemCount;
+
+
+                    }
+
+                    private void isScrollCompleted() {
+                        if (totalItem - currentFirstVisibleItem == currentVisibleItemCount
+                                && this.currentScrollState == SCROLL_STATE_IDLE) {
+                            /** To do code here*/
+
+
+                        }
+
+                    }
+                });
+                // beaconAdapter.notifyDataSetChanged();
+                gridBeacon.setAdapter(beaconAdapter);
+
+
             }
         });
+
     }
 }
-
