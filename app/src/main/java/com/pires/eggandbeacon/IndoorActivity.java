@@ -133,7 +133,7 @@ public class IndoorActivity extends AppCompatActivity {
                 Ibeacon beacon = uuidConv.createIbeaconFromRecord(result.getScanRecord().getBytes());
 
 
-                if(beacon.getUuid().equals("B9407F30-F5F8-466E-AFF9-25556B57FE6D") && beacon.getMajor() == 59345 && beacon.getMinor() == 17776 && result.getRssi() < -50){
+                if(beacon.getUuid().equals("B9407F30-F5F8-466E-AFF9-25556B57FE6D") && beacon.getMajor() == 0 && beacon.getMinor() == 0 && result.getRssi() < -50){
                     Log.d("RSSI ", "" + result.getRssi());
                     textArea.setText("Du er i: Stuen");
                     imgMarkerLiving.setVisibility(View.VISIBLE);
@@ -143,7 +143,7 @@ public class IndoorActivity extends AppCompatActivity {
                     imgCircleLiving.setVisibility(View.INVISIBLE);
                 }
 
-                if(beacon.getUuid().equals("B9407F30-F5F8-466E-AFF9-25556B57FE6D") && beacon.getMajor() == 37651 && beacon.getMinor() == 13436 && result.getRssi() < -50){
+                if(beacon.getUuid().equals("B9407F30-F5F8-466E-AFF9-25556B57FE6D") && beacon.getMajor() == 0 && beacon.getMinor() == 0 && result.getRssi() < -50){
                     Log.d("RSSI ", "" + result.getRssi());
                     imgMarkerHall.setVisibility(View.VISIBLE);
                     imgCircleHall.setVisibility(View.VISIBLE);
