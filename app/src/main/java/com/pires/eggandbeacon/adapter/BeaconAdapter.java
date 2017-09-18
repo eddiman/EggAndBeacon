@@ -65,6 +65,7 @@ public class BeaconAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.gridview_beacons, null);
         }
 
+        final TextView textName = (TextView)convertView.findViewById(R.id.alt_name);
         final TextView textUuid = (TextView)convertView.findViewById(R.id.alt_uuid);
         final TextView textMajor = (TextView)convertView.findViewById(R.id.alt_Major);
         final TextView textMinor = (TextView)convertView.findViewById(R.id.alt_Minor);
@@ -72,6 +73,7 @@ public class BeaconAdapter extends BaseAdapter {
         final TextView textDist = (TextView)convertView.findViewById(R.id.alt_dist);
 
         if (list.size() > 0) {
+            textName.setText("Name: " + beacon.getBluetoothName());
             textUuid.setText("UUID: " + beacon.getId1());
             textMajor.setText("Major: " + beacon.getId2());
             textMinor.setText("Minor: " + beacon.getId3());
